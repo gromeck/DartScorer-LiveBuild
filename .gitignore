@@ -1,0 +1,8 @@
+# live-build
+*.deb
+.*.sw[a-z]
+.build
+cache
+binary*
+chroot*
+live-image-*
