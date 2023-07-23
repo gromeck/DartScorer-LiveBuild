@@ -3,4 +3,3 @@ alsa-utils
 apt-utils
 vim
 xcompmgr x11-xserver-utils xclip xdg-user-dirs xdg-utils xinit xserver-xorg-core xwallpaper termit
-libfltk1.3-dev
