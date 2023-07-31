@@ -1,6 +1,6 @@
 #!/bin/bash
 while true; do
-	DartScorer --fullscreen
-	sleep 1
+	/usr/games/DartScorer --fullscreen
+	sleep 3
 done
 termit
