@@ -10,4 +10,5 @@ sudo rm -rf \
 	cache \
 	binary* \
 	chroot* \
-	live-image-*
+	live-image-* \
+	${TITLE}-amd64.*
