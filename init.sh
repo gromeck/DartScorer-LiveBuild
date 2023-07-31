@@ -4,6 +4,7 @@
 #	https://wiki.debian.org/DebianLive
 #	https://lecorbeausvault.wordpress.com/2021/01/10/quickly-build-a-custom-bootable-installable-debian-live-iso-with-live-build/
 #
+. ./common.sh
 
 #
 #	install live-build environment

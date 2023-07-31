@@ -2,6 +2,7 @@
 #
 #	remove everything we don't need
 #
+. ./common.sh
 
 sudo rm -rf \
 	*.deb \

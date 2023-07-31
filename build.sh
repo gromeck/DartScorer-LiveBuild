@@ -5,6 +5,7 @@
 #	cleanup
 #
 sudo lb clean
+. ./common.sh
 
 #
 #	copy the DartScorer packages
