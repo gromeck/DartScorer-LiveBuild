@@ -1,8 +1,11 @@
 # live-build
 *.deb
-.*.sw[a-z]
 .build
 cache
 binary*
 chroot*
 live-image-*
+DartScorer-amd64.*
+
+#vim
+.*.sw[a-z]
