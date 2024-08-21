@@ -5,7 +5,13 @@
 . ./common.sh
 
 sudo rm -rf \
-	*.deb \
+	config/binary \
+	config/bootstrap \
+	config/chroot \
+	config/common \
+	config/hooks \
+	config/packages/*.deb \
+	config/source \
 	.build \
 	cache \
 	binary* \
