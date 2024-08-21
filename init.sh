@@ -7,18 +7,39 @@
 . ./common.sh
 
 #
-#	install live-build environment
+#	install live-build environment -- if not already installed
 #
-sudo apt install live-build
+apt info live-build
+[ $? != 0 ] && sudo apt install live-build
+
+#
+#	source the hosts os info
+#
+. /etc/os-release
 
 #
 #	do the base config
 #
-lb config \
-	--distribution bullseye \
-	--archive-areas "main contrib non-free-firmware" \
+sudo lb clean
+
+sudo lb config \
+	--archive-areas "main contrib non-free non-free-firmware" \
+	--bootappend-live "boot=live components persistence console=ttyS0 console=tty0" \
+	--debian-installer-gui false \
 	--debootstrap-options "--variant=minbase" \
-	--bootappend-live "boot=live components persistence"
+	--distribution $VERSION_CODENAME \
+	--binary-image iso-hybrid \
+	--binary-filesystem fat32 \
+	--clean \
+	--memtest memtest86+ \
+	--initsystem systemd \
+	--color \
+	--hdd-label $TITLE \
+	--image-name $TITLE \
+	--source false \
+	--system live \
+	--apt-recommends false \
+	--zsync false
 
 #
 #	EOF
