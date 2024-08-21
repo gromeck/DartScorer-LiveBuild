@@ -5,18 +5,29 @@
 . ./common.sh
 
 #
-#	copy the DartScorer packages
+#	copy the DartScorer packages if available
 #
-cp -p ../DartScorer/dartscorer*.deb config/packages/
-cp -p ../DartScorer-Voices/dartscorer-voices*.deb config/packages/
+DEBS=""
+echo "Checking for DartScorer debian packages ..."
+for DEB in ./DartScorer/dartscorer*.deb ../DartScorer-Voices/dartscorer-voices*.deb; do
+	[ -f "$DEB" ] && DEBS="$DEBS $DEB"
+done
+if [ "$DEB" = "" ]; then
+	echo "WARNING: Found no $TITLE debian packages to include in live build"
+else
+	echo "$TITLE debian packages to include:$DEBS"
+	cp -p $DEBS config/packages/
+fi
 
 #
 #	do the build
 #
+echo "Starting $TITLE live build ..."
 sudo lb build
+[ $? != 0 ] && echo "WARNING: $TITLE live build failed"
 
 #
-#	rename & show the result
+#	show the result
 #
 du -h $TITLE-*
 
